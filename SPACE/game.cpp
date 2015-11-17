@@ -137,6 +137,10 @@ bool game::OrderIn(string order) // Order In
 		{
 			INV();
 		}
+		else if (order == "drop")
+		{
+			DROP();
+		}
 		else if (order == "use")
 		{
 			USE();
@@ -261,7 +265,8 @@ void game::HELP() const // Help Comand
 	cout << "Welcome to SPACE! Just enter a comand to play! Comands list:" << endl;
 	cout << "look : Check your environment for items" << endl;
 	cout << "go : Go somewhere" << endl;
-	cout << "take : Take somthing" << endl;
+	cout << "take : Take something" << endl;
+	cout << "drop : Drop something" << endl;
 	cout << "putinside : Put one item inside another item" << endl;
 	cout << "inv : Check items in your inventory" << endl;
 	cout << "use : Use a item" << endl << endl;
@@ -270,11 +275,19 @@ void game::HELP() const // Help Comand
 
 void game::INV() const // Inventory Comand
 {
-	cout << "Items in your inventory:" << endl;
-	for (int i = 0; i < MyPlayer.inv.size(); i++)
+	if (MyPlayer.inv.size() > 0)
 	{
-		cout << "      - [" << i << "] - " << MyPlayer.inv[i].name << endl;
+		cout << "Items in your inventory:" << endl;
+		for (int i = 0; i < MyPlayer.inv.size(); i++)
+		{
+			cout << "      - [" << i << "] - " << MyPlayer.inv[i].name << endl;
+		}
 	}
+	else
+	{
+		cout << "Your inventory is empty!" << endl;
+	}
+
 }
 
 void game::PUTINSIDE()
@@ -320,6 +333,36 @@ void game::PUTINSIDE()
 	}
 }
 
+void game::DROP() // Drop Comand
+{
+	if (MyPlayer.inv.size() > 0)
+	{
+		cout << "What item you want to drop? Write the number!" << endl;
+		int max = 0;
+		for (int i = 0; i < MyPlayer.inv.size(); i++)
+		{
+			cout << "      - [" << i << "] - " << MyPlayer.inv[i].name << endl;
+			max = i;
+		}
+		int temp = -1;
+		cin >> temp;
+		if (temp >= 0 && temp <= max)
+		{
+			string name = MyPlayer.inv[temp].name;
+			MyPlayer.whereami->AddItemToPlace(MyPlayer.inv[temp]);
+			MyPlayer.RemoveFromInv(MyPlayer.inv[temp]);
+			cout << "You drop " << name << " on the floor" << endl;
+		}
+		else
+		{
+			cout << "You enter a wrong number" << endl;
+		}
+	}
+	else
+	{
+		cout << "Your inventory is empty!" << endl;
+	}
+}
 
 void game::USE() // Use Comand
 {

@@ -59,6 +59,7 @@ class game
 	void INV() const;
 	void USE();
 	void PUTINSIDE();
+	void DROP();
 
 
 	void onenergy(items &codecard);

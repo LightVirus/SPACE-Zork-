@@ -21,7 +21,7 @@ place::~place()
 void place::AddItemToPlace(items &itemadd)
 {
 	zoneitems.push_back(itemadd);
-	itemadd.desc = "thrown on the floor";
+	itemadd.placedesc = "thrown on the floor";
 }
 
 
