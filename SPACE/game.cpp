@@ -112,11 +112,6 @@ void game::imprimir(bool &ft)
 	cout << endl;
 	cout << MyPlayer.whereami->desc << endl;
 	cout << endl;
-
-	
-	
-	
-	
 }
 
 

@@ -18,9 +18,6 @@ int main(int argc, char* argv[])
 	game MyGame;
 	bool ft = true;
 	bool gameover = false;
-
-	
-
 	while(!gameover)
 	{
 		string order = "";
