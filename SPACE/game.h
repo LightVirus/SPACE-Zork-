@@ -14,15 +14,9 @@ class items;
 
 class game
 {
-public:
-	game();
-	~game();
-	
-	
-	
 	// Player
 	player MyPlayer;
-	
+
 	//Rooms
 	place Engi;
 	place Crew;
@@ -58,10 +52,6 @@ public:
 	events UsePCuter;
 	events OpenHangar;
 
-	
-	void imprimir(bool &ft);
-	bool OrderIn(string order);
-
 	void GO();
 	void TAKE();
 	void LOOK() const;
@@ -70,8 +60,17 @@ public:
 	void USE();
 	void PUTINSIDE();
 
-	
+
 	void onenergy(items &codecard);
 	void hangaropen(items &hangarcard);
 	void PCutterUse(items &pcutter);
+
+public:
+	game();
+	~game();
+	
+	void imprimir(bool &ft);
+	bool OrderIn(string order);
+
+	
 };

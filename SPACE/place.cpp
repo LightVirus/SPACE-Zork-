@@ -68,7 +68,7 @@ void place::RemoveFromZone(items &itemrem)
 	}
 }
 
-void place::FindItems const()
+void place::FindItems() const
 {
 	for (int i = 0; i < zoneitems.size(); i++)
 	{
