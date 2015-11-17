@@ -15,10 +15,6 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	
-
-	
-	
 	game MyGame;
 	bool ft = true;
 	bool gameover = false;
@@ -32,17 +28,7 @@ int main(int argc, char* argv[])
 		cout << "-> ";
 		cin >> order;
 		gameover = MyGame.OrderIn(order);
-		
-		
-	
 	}
-	
-	
-	
-	
-	
-	
-	
 	return 0;
 }
 
